@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	h1 Login
+	p Please login below
+	form(method='post',action='/login')
+		.form-group
+			label Username
+			input.form-control(name='username', type='text')
+		.form-group
+			label Password
+			input.form-control(name='password', type='password')
+			input.form-control(type='hidden', name='redirect', value='#{redirect}' )
+			input.form-control(type='hidden' ,name='client_id', value='#{client_id}' )
+			input.form-control(type='hidden' ,name='redirect_uri', value='#{redirect_uri}')
+		input.btn.btn-default(name='submit', type='submit',value='Login')

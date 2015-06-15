@@ -1,0 +1,80 @@
+﻿// Schema
+var UserSchema = new mongoose.Schema({ 
+	firstName: String,
+	created: {
+		type: Date,
+		default: Date.now
+	},
+	xxx: {
+		trim: true (đây là hàm có sẵn, được thực thi khi tạo new model),
+		set: function(var) {
+			return var + 'sdsd';
+//			return xxx;
+		}, // đây là hàm sẽ duoc thực thi khi gán giá tri cho xxx
+		get: function(value) {
+			...
+			return value;
+		} // hàm này sẽ được thực thi tự động khi get data xxx
+	}
+},
+); 
+
+UserSchema.set('toJSON', { getters: true });// khai báo sẽ xử dụng hàm getters của Schema
+
+mongoose.model('User', UserSchema);
+
+// sử dụng virtual attribute, khai báo này se tu dong thêm fullName sau khi load data từ db
+UserSchema.virtual('fullName').get(function() {
+	return this.firstName + ' ' + this.lastName;
+});
+UserSchema.set('toJSON', { getters: true, virtuals: true });
+
+
+
+// find 
+User.find({}, 'username email', {
+	skip: 10,
+	limit: 10
+}, function(err, users) {
+	...
+});
+
+
+
+// thêm static method vào trong model, không nen truy vấn db trong controller
+UserSchema.statics.findOneByUsername = function (username, callback) 
+{
+	this.findOne({ username: new RegExp(username, 'i') }, callback);
+};
+=> use User.findOneByUsername();
+
+// thêm instance method
+UserSchema.methods.authenticate = function(password) {
+	return this.password === password;
+};
+=> user.authenticate('password');
+
+// validation
+validation trong mongoose: http://mongoosejs.com/docs/validation.html
+
+
+//Mongoose middleware: cho phép can thiệp trc và sau khi thực thi các hàm init, validate,save, and remove
+// pre middleware. ví dụ dùng pre() để validate trc khi save
+UserSchema.pre('save', function(next) {
+	if (validate) {
+		next()
+	} else {
+		next(new Error('An Error Occured'));
+	}
+});
+
+// post middleware. ví du dưới là ghi log sau khi save data
+UserSchema.post('save', function(next) {
+	if(this.isNew) {
+		console.log('A new user was created.');
+	} else {
+		console.log('A user updated is details.');
+	}
+});
+
+More about middleware: http://mongoosejs.com/docs/middleware.html

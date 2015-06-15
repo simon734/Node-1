@@ -1,0 +1,12 @@
+npm install -g express
+npm install -g express-generator
+
+express <ten website>
+
+
+npm install --save express
+npm install --save mongoose
+npm install --save node-restful
+npm install --save method-override
+npm install --save body-parser
+npm install --save lodash

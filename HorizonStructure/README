@@ -1,0 +1,11 @@
+// start project
+npm start
+
+// run test script in app/tests
+mocha --timeout 15000 --reporter spec app/tests
+or
+grunt test
+
+// run with debug mode
+grunt debug
+then access http://localhost:8080/debug?port=5858 to get in debug UI

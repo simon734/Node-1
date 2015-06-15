@@ -1,0 +1,2 @@
+curl -i -XPOST -H "Content-Type: application/x-www-form-urlencoded" --user 123:456 --data "grant_type=password&username=johndoe&password=123456" "http://localhost:3000/oauth/token" --trace-ascii /dev/sdtout
+curl -i -XPOST -H "Content-Type: application/x-www-form-urlencoded" --user 123:456 --data "grant_type=password&username=phuoc&password=phuoc&client_id=phuoc" "http://localhost:3000/oauth/token" --trace-ascii /dev/sdtout

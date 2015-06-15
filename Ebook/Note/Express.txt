@@ -1,0 +1,37 @@
+﻿http://expressjs.com/
+
+app.set(name, value): This is used to set environment variables that Express will use in its configuration.
+app.get(name): This is used to get environment variables that Express is using in its configuration.
+app.locals: This is used to send application-level variables to all rendered templates
+app.use([path], callback)
+app.VERB(path, [callback...], callback)
+app.route(path).VERB([callback...], callback)
+
+process.env.NODE_ENV: dùng để check biến môi trường khi chạy app
+set moi truong cho windows: set NODE_ENV=development
+set moi trường cho linux: export NODE_ENV=development
+
+// cấu hình bodyParser và methodOverride(thêm put và delete method)
+app.use(bodyParser.urlencoded({
+	extended: false 
+}));
+app.use(bodyParser.json());
+app.use(methodOverride());
+
+// config session
+app.use(session({
+	saveUninitialized: true,
+	resave: true,
+	secret: 'secret'
+}));
+// sử dụng session
+req.session.key = value
+
+
+ERROR HANDLING
+// four arguments instead of three
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+// đặt middleware này sau các middleware khác và sau các route luôn

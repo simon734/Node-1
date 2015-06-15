@@ -1,0 +1,18 @@
+﻿// install
+npm install -g yo
+npm install -g generator-meanjs
+
+// init project 
+yo meanjs
+
+// tao full crud model
+yo meanjs:crud-module <module-name>
+
+// tạo express-model
+yo meanjs:express-model <model-name>
+
+// tạo express-controller
+yo meanjs:express-controller
+
+// tạo express-route
+yo meanjs:express-route <route name>

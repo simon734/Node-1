@@ -1,0 +1,5 @@
+﻿each(arr, iterator, callback)
+	đối voi mỗi phần tử của arr sẽ dc xử lý bởi hàm iterator, sau đó hàm callback chính sẽ được gọi, 
+	nếu có bất cứ err nào trong lúc xứ lý từng phần tử
+	
+http://www.sebastianseilund.com/nodejs-async-in-practice

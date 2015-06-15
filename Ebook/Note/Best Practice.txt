@@ -1,0 +1,8 @@
+﻿Lỗi 1:
+	thêm return trước mỗi callback vì hàm callback không kết thúc hàm. VD: 
+	if(err) {
+		return done(err)
+	}	
+	
+Callbacks Always Pass Error Parameter First: luôn trả về tham số đầu tiên là err trong hàm callback, nếu k có err thì trả về null
+Always Check for “error” in Callbacks
