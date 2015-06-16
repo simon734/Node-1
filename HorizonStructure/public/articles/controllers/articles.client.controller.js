@@ -40,8 +40,10 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
                     for (var i in $scope.articles) {
                         if (article === $scope.articles[i]) {
                             $scope.articles.splice(i, 1);
+                            return $location.path('articles');
                         }
                     }
+
                 });
             } else {
                 $scope.article.$remove(function() {
