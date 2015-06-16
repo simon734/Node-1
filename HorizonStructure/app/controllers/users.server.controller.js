@@ -104,7 +104,8 @@ module.exports.list = function(req, res, next) {
 
 module.exports.read = function(req, res, next) {
 	var id = req.params.id;
-
+	console.log('phuoc')
+	console.log(req.params.id);
 	User.findById(id, function(err, user) {
 		if (err) {
 			return next(err);

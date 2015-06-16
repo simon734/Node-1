@@ -6,11 +6,11 @@ var users = require('../controllers/users.server.controller'),
 
 module.exports = function(app) {
 
-	app.route('/articles')
+	app.route('/api/articles')
 		.post(users.checkLogin, articles.create)
 		.get(articles.list);
 
-	app.route('/articles/:id')
+	app.route('/api/articles/:id')
 		.get(articles.read)
 		.delete(users.checkLogin, articles.delete)
 		.put(users.checkLogin, articles.update);

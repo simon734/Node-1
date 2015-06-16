@@ -20,7 +20,7 @@ module.exports.create = function(req, res, next) {
 
 	article.save(function(err) {
 		if (err) {
-			return res.sratus(400).send({
+			return res.status(400).send({
 				'message': gerErrorMessage(err)
 			})
 		} else {
@@ -33,7 +33,7 @@ module.exports.list = function(req, res, next) {
 	Article.find().sort('-created').populate('creator', 'firstName lastName fullName').exec(
 		function(err, articles) {
 			if (err) {
-				return res.sratus(400).send({
+				return res.status(400).send({
 					'message': gerErrorMessage(err)
 				});
 			} else {
@@ -45,9 +45,10 @@ module.exports.list = function(req, res, next) {
 module.exports.read = function(req, res, next) {
 	var id = req.params.id;
 
-	Article.findById(id, function(err, article) {
+	Article.findById(id).populate('creator', 'firstName lastName fullName').exec(function(err,
+		article) {
 		if (err) {
-			return res.sratus(400).send({
+			return res.status(400).send({
 				'message': gerErrorMessage(err)
 			});
 		} else {
@@ -71,15 +72,21 @@ module.exports.delete = function(req, res, next) {
 module.exports.update = function(req, res, next) {
 	var id = req.params.id;
 
-	Article.update({
+	var update = {
+		title: req.body.title,
+		content: req.body.content
+	}
+
+	Article.findOneAndUpdate({
 		'_id': id
-	}, req.body, function(err) {
+	}, update, function(err, updatedArticle) {
 		if (err) {
-			return res.sratus(400).send({
+			console.log(err);
+			return res.status(400).send({
 				'message': gerErrorMessage(err)
 			});
 		} else {
-			res.send('updated');
+			res.json(updatedArticle);
 		}
 	})
 }
