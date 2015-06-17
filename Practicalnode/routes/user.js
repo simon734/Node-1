@@ -7,7 +7,7 @@ exports.logout = function(req, res, next) {
 };
 
 exports.authenticate = function(req, res, next) {
-    req.collections.users.findOne({
+    req.models.User.findOne({
         email: req.body.email,
         password: req.body.password
     }, function(err, user) {

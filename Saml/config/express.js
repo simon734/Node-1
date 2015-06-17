@@ -89,11 +89,7 @@ module.exports = function(db) {
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
-		secret: config.sessionSecret,
-		store: new mongoStore({
-			db: db.connection.db,
-			collection: config.sessionCollection
-		})
+		secret: config.sessionSecret
 	}));
 
 	// use passport session

@@ -2,7 +2,7 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
-var mongoskin = require('mongoskin');
+var mongoose = require('mongoose');
 
 var session = require('express-session'),
     logger = require('morgan'),
@@ -12,20 +12,18 @@ var session = require('express-session'),
     methodOverride = require('method-override');
 
 var dbUrl = 'mongodb://katanhich:catanhi@ds047742.mongolab.com:47742/blog';
-var db = mongoskin.db(dbUrl, {
+var db = mongoose.connect(dbUrl, {
     safe: true
 });
-var collections = {
-    articles: db.collection('articles'),
-    users: db.collection('users')
-}
+
+var models = require('./models');
 
 var app = express();
 
 app.locals.appTitle = 'blog-express';
 
 app.use(function(req, res, next) {
-    req.collections = collections;
+    req.models = models;
     next();
 })
 

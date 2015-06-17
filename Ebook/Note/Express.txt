@@ -35,3 +35,12 @@ app.use(function(err, req, res, next) {
   res.status(500).send('Something broke!');
 });
 // đặt middleware này sau các middleware khác và sau các route luôn
+var errorHandler = require('errorhandler');
+if (process.env.NODE_ENV === 'development') {
+	app.use(errorHandler({ 
+		dumpExceptions: true, 
+		showStack: true 
+	}));
+} else if (process.env.NODE_ENV === 'production') {
+	app.use(errorHandler());
+}

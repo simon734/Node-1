@@ -4,7 +4,7 @@ exports.list = function(req, res) {
 
 exports.show = function(req, res, next) {
     if (!req.params.slug) return next(new Error('No article slug.'));
-    req.collections.articles.findOne({
+    req.models.Article.findOne({
         slug: req.params.slug
     }, function(error, article) {
         if (error) return next(error);
@@ -14,7 +14,7 @@ exports.show = function(req, res, next) {
 }
 
 exports.list = function(req, res, next) {
-    req.collections.articles.find().toArray(function(err, articles) {
+    req.models.Article.find().exec(function(err, articles) {
         if (err) return next(err);
         res.send({
             articles: articles
@@ -26,7 +26,7 @@ exports.add = function(req, res, next) {
     if (!req.body.article) return next(new Error('no article'));
 
     var newArticle = req.body.article;
-    req.collections.articles.insert(newArticle, function(err, articleResponse) {
+    req.models.Article.create(newArticle, function(err, articleResponse) {
         if (err) return next(err);
         res.send(articleResponse);
     });
@@ -34,7 +34,7 @@ exports.add = function(req, res, next) {
 
 exports.edit = function(req, res, next) {
     if (!req.params.id) return next(new Error('no article id'));
-    var col = req.collections.articles;
+    var col = req.models.Article;
     col.updateById(req.params.id, {
         $set: req.body.article
     }, function(err, count) {
@@ -47,7 +47,7 @@ exports.edit = function(req, res, next) {
 
 exports.del = function(req, res, next) {
     if (!req.params.id) return next(new Error('no article id'));
-    var col = req.collections.articles;
+    var col = req.models.Article;
     col.removeById(req.params.id, function(err, count) {
         if (err) return next(err);
         res.send({
@@ -72,7 +72,7 @@ exports.postArticle = function(req, res, next) {
         text: req.body.text,
         published: false
     };
-    req.collections.articles.insert(article, function(error, articleResponse) {
+    req.models.Article.create(article, function(error, articleResponse) {
         if (error) return next(error);
         res.render('post', {
             error: 'Artical was added. Publish it on Admin page.'
@@ -81,8 +81,8 @@ exports.postArticle = function(req, res, next) {
 };
 
 exports.admin = function(req, res, next) {
-    var col = req.collections.articles;
-    col.find().toArray(function(err, articles) {
+    var col = req.models.Article;
+    col.find().exec(function(err, articles) {
         if (err) return next(err);
         res.render('admin', {
             articles: articles
