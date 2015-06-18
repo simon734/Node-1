@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 var should = require('should'),
-	mongoose = require('mongoose'),
+	mongoose = require('../config/mongoose'),
 	User = mongoose.model('User');
 
 /**

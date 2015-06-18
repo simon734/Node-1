@@ -15,22 +15,14 @@ var fs = require('fs'),
 	cookieParser = require('cookie-parser'),
 	helmet = require('helmet'),
 	passport = require('passport'),
-	mongoStore = require('connect-mongo')({
-		session: session
-	}),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
 	path = require('path');
 
-module.exports = function(db) {
+module.exports = function() {
 	// Initialize express app
 	var app = express();
-
-	// Globbing model files
-	config.getGlobbedFiles('./app/models/**/*.js').forEach(function(modelPath) {
-		require(path.resolve(modelPath));
-	});
 
 	// Setting application local variables
 	app.locals.title = config.app.title;
@@ -89,11 +81,7 @@ module.exports = function(db) {
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
-		secret: config.sessionSecret,
-		store: new mongoStore({
-			db: db.connection.db,
-			collection: config.sessionCollection
-		})
+		secret: config.sessionSecret
 	}));
 
 	// use passport session
@@ -128,7 +116,7 @@ module.exports = function(db) {
 
 		// Error page
 		res.status(500).render('500', {
-			error: err.stack
+			error: 'Internal Server Error'
 		});
 	});
 
