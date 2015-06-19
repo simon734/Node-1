@@ -1,0 +1,171 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif, arial;
+    font-size: 14px;
+    color: #000000;
+    background-repeat: repeat-x;
+    background-color: #1c478e;
+    background-image: url(../images/background.png);
+    text-align: left;
+}
+
+.center {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#header {
+    height: 85px;
+}
+
+#header h1 {
+    color: white;
+    font-size: 43px;
+    float: left;
+    padding: 20px 0 0 20px;
+    text-align:left;
+}
+
+#header h2 {
+    color: #1c478e;
+    float: right;
+    padding: 38px 20px 0 0;
+}
+
+#menu {
+    padding: 15px 0 0 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#menu li {
+    display: inline;
+    padding-right: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#leftmenu {
+    width: 210px;
+    background-color: #1c478e;
+    border-radius: 10px;
+    padding: 15px 20px 10px 10px ;
+    margin-top: 35px;
+    float: left;
+}
+
+#leftmenu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#leftmenu li {
+    padding-top: 10px;
+    border-bottom: #fff dashed 1px;
+    padding-bottom: 8px;
+}
+
+#leftmenu h3 {
+    color: white;
+    border-bottom: #fff solid 2px;
+    padding-bottom: 8px;
+}
+
+#contain {
+    float: right;
+    width: 740px;
+    margin-top: 37px;
+
+}
+
+#contain1, #contain2 {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: solid 6px #1c478e;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+#contain2 {
+    margin-top: 18px;
+    height: 200px;
+}
+
+#whowetext {
+    float: left;
+    width: 350px;
+}
+
+#whoewimage {
+    float: right;
+}
+
+#whowetext h3 {
+    color: #054DBC;
+    padding: 15px 0 15px 0;
+}
+
+.developer {
+    width: 170px;
+    float: left;
+}
+
+.developer h4 {
+    color: #054DBC;
+    padding: 10px 0 10px 0;
+}
+
+.developer a {
+    color: #3400F3;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+#contact {
+    background-color: white;
+    border-radius: 10px;
+    height: 450px;
+    border: solid 5px #1c478e;
+    padding: 13px;
+}
+
+#contact h3 {
+    color: #054DBC;
+    padding: 13px 0 13px 0;
+}
+
+#contact p {
+    padding-bottom: 13px;
+}
+
+#contact label {
+    width: 150px;
+    display: inline-block;
+}
+
+#contact td {
+    padding-left: 30px;
+}
