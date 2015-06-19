@@ -5,8 +5,7 @@
 	"author": "Phuoc",
 	"scripts": {
 		"start": "grunt",
-		"test": "grunt test",
-		"postinstall": "bower install --config.interactive=false"
+		"test": "grunt test"
 	},
 	"dependencies": {
 		"express": "~4.10.1",
