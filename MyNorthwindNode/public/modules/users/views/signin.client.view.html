@@ -1,0 +1,44 @@
+<div id="signup" class="center">
+    <h3>Sign up using your social accounts</h3>
+    <div id="external">
+        <a href="/auth/facebook">
+            <img src="/modules/users/images/facebook.png">
+        </a>
+        <a href="/auth/twitter">
+            <img src="/modules/users/images/twitter.png">
+        </a>
+        <a href="/auth/google">
+            <img src="/modules/users/images/google.png">
+        </a>
+        <a href="/auth/linkedin">
+            <img src="/modules/users/images/linkedin.png">
+        </a>
+        <a href="/auth/github">
+            <img src="/modules/users/images/github.png">
+        </a>
+    </div>
+    <h2>Or with your account</h2>
+    <div id="form">
+        <form ng-controller="AuthenticationController" ng-submit="signin()" novalidate>
+            <p>
+                <label for="username">Username</label><br>
+                <input type="text" id="username" name="username" ng-model="credentials.username">
+            </p>
+
+            <p>
+                <label for="password">Password</label><br>
+                <input type="text" id="password" name="password" ng-model="credentials.password">
+            </p>
+
+            <p>
+                <button type="submit">Sign in</button> or
+                <a href="/#!/signup">Sign up</a>
+            </p>
+            <p>
+                <br>
+                <a href="/#!/password/forgot">Forgot your password?</a>
+            </p>
+        </form>
+        <p><br></p>
+    </div>
+</div>

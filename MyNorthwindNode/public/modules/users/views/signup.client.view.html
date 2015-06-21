@@ -1,0 +1,58 @@
+<div id="signup" class="center">
+    <h3>Sign up using your social accounts</h3>
+    <div id="external">
+        <a href="/auth/facebook">
+            <img src="/modules/users/images/facebook.png">
+        </a>
+        <a href="/auth/twitter">
+            <img src="/modules/users/images/twitter.png">
+        </a>
+        <a href="/auth/google">
+            <img src="/modules/users/images/google.png">
+        </a>
+        <a href="/auth/linkedin">
+            <img src="/modules/users/images/linkedin.png">
+        </a>
+        <a href="/auth/github">
+            <img src="/modules/users/images/github.png">
+        </a>
+    </div>
+    <h2>Or with your email</h2>
+    <div id="form">
+        <form name="user" ng-controller="AuthenticationController" novalidate ng-submit="user.$valid && signup()">
+            <p>
+                <label for="firstname">First Name</label><br>
+                <input ng-model="credentials.firstName" type="text" id="firstname" name="firstname">
+            </p>
+
+            <p>
+                <label for="lastname">Last Name</label><br>
+                <input ng-model="credentials.lastName" type="text" id="lastname" name="lastname">
+            </p>
+
+            <p>
+                <label for="email">Email</label><br>
+                <input ng-model="credentials.email" type="text" id="email" name="email">
+            </p>
+
+            <p>
+                <label for="username">Username</label><br>
+                <input ng-model="credentials.username" type="text" id="username" name="username" required>
+            </p>
+
+            <p>
+                <label for="password">Password</label><br>
+                <input ng-model="credentials.password" type="password" id="password" name="password" required>
+            </p>
+
+            <p>
+                <button type="submit">Sign up</button> or
+                <a href="/#!/signin">Sign in</a>
+            </p>
+            <p id="error" ng-show="error">
+                <strong data-ng-bind="error"></strong>
+            </p>
+        </form>
+        <p><br></p>
+    </div>
+</div>

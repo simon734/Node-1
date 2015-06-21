@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://192.168.200.18/northwindnode?ssl=true',
+	db: 'mongodb://katanhich:catanhi@ds031952.mongolab.com:31952/testnode',
 	app: {
 		title: 'MEAN - Development Environment'
 	},

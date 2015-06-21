@@ -1,11 +1,9 @@
 'use strict';
 
 var mainApplicationModuleName = 'mean';
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource', 'ngRoute',
-	'users'
+var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource', 'ngRoute', 'users',
+	'core', 'products'
 ]);
-
-if (window.location.hash === '#_=_') window.location.hash = '#!';
 
 mainApplicationModule.config(['$locationProvider',
 	function($locationProvider) {
@@ -14,5 +12,7 @@ mainApplicationModule.config(['$locationProvider',
 ]);
 
 angular.element(document).ready(function() {
+	if (window.location.hash === '#_=_') window.location.hash = '#!';
+
 	angular.bootstrap(document, [mainApplicationModuleName]);
 });
