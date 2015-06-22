@@ -13,7 +13,7 @@ exports.create = function(req, res) {
     newCategory.save(function(err) {
         if (err) {
             res.status(400).send({
-                messsage: errorHandler.getErrorMessage(err)
+                message: errorHandler.getErrorMessage(err)
             })
         } else {
             res.status(201).json(newCategory);

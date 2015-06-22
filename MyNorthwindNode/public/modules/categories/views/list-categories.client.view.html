@@ -1,0 +1,15 @@
+<div class="newproduct" ng-controller="CategoryController" ng-init="find()">
+    <h1>Categories</h1>
+    <div ng-show="!categories.length" class="noproducts">
+        No Categories yet, why don't you <a href="/#!/categories/create">create one?</a>
+    </div>
+
+    <div>
+        <a data-ng-repeat="category in categories" data-ng-href="#!/categories/{{category._id}}">
+            <span data-ng-bind="category.name"></span> -
+            <span data-ng-bind="category.description"></span>
+            <br>
+        </a>
+    </div>
+
+</div>

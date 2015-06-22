@@ -1,0 +1,15 @@
+<section ng-controller="CategoryController" ng-init="findOne()">
+    <div>
+        <h1 data-ng-bind="category.name"></h1>
+        <p data-ng-bind="category.description"></p>
+    </div>
+
+    <div>
+        <a href="/#!/categories/{{category._id}}/edit">
+            <i></i>
+        </a>
+        <a data-ng-click="remove();">
+            <i></i>
+        </a>
+    </div>
+</section>

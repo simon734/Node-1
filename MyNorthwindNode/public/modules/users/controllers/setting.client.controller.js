@@ -6,7 +6,7 @@ angular.module('users').controller('SettingController', ['$scope', '$http', '$lo
         $scope.user = Authentication.user;
 
         $scope.update = function() {
-            $http.post('')
+            //$http.post('')
         }
     }
 ])

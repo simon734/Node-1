@@ -203,10 +203,39 @@ a {
     list-style: none;
 }
 
-#newproduct {
+.newproduct {
     margin-top: 10px;
 }
 
-#newproduct h1 {
+.newproduct h1 {
     margin-bottom: 10px;
+    padding-bottom: 20px;
+    font-size: 37px;
+    font-weight: normal;
+    border-bottom: solid 2px #F5F5F5;
+}
+
+.noproducts {
+    text-align: center;
+    background-color: #FAF4D4;
+    border-radius: 4px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.controllers {
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
+.controllers input {
+    height: 25px;
+    width: 100%;
+    padding: 5px 0 5px 5px;
+}
+
+.controllers textarea {
+    height: 100px;
+    width: 100%;
+    padding: 5px 0 5px 5px;
 }

@@ -1,0 +1,23 @@
+<div class="newproduct" ng-controller="CategoryController" novalidate ng-submit="create()">
+    <h1>New Category</h1>
+    <div>
+        <form name="myform">
+            <div>
+                <label for="name">Name</label>
+                <div class="controllers">
+                    <input ng-model="name" type="text" id="name" name="name" placeholder="Name">
+                </div>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <div class="controllers">
+                    <textarea ng-model="description" id="description" name="description" placeholder="Description"></textarea>
+                </div>
+            </div>
+            <button type="submit" value="Submit">Submit</button>
+            <div ng-show="error" id="error">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </form>
+    </div>
+</div>
