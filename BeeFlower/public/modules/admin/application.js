@@ -4,7 +4,7 @@
 'use strict';
 
 var mainApplicationModuleName = 'beeflower';
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource', 'ngRoute', 'admin'
+var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource', 'ngRoute', 'users', 'categories'
 ]);
 
 mainApplicationModule.config(['$locationProvider',

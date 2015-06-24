@@ -3,4 +3,4 @@
  */
 'use strict';
 
-angular.module('admin', []);
+angular.module('categories', []);

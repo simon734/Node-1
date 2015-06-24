@@ -19,26 +19,19 @@ module.exports.create = function(req, res) {
 
 module.exports.renderAdminLogin = function(req, res) {
     res.render('admin/login');
-}
+};
 
-module.exports.login = function(req, res) {
-    User.findByUsername(req.body.username, function(err, user) {
-        if (err) {
-            return errorHandler.sendError(err, res);
-        }
+module.exports.adminLogout = function(req, res){
+    req.logout();
+    res.redirect('/admin/login');
+};
 
-        if (!user) {
-            res.render('admin/login', {
-                message: 'Invalid User'
-            });
+module.exports.requireAdmin = function(req, res, callback) {
+    if (req.isAuthenticated()) {
+        var user = req.user;
+        if (user.roles.indexOf('admin') >= 0) {
+            return callback();
         }
-
-        if (user.authenticate(req.body.password)) {
-            res.render('admin/index');
-        } else {
-            res.render('admin/login', {
-                message: 'Wrong Password'
-            });
-        }
-    });
+    }
+    res.redirect('/admin/login');
 }
