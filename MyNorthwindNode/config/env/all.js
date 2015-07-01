@@ -7,7 +7,7 @@ module.exports = {
 		keywords: 'MongoDB, Express, AngularJS, Node.js'
 	},
 	db: 'mongodb://katanhich:catanhi@ds031952.mongolab.com:31952/testnode',
-	port: process.env.PORT || 3000,
+	port: process.env.PORT || 3001,
 	templateEngine: 'swig',
 	sessionSecret: 'MEAN',
 	sessionCollection: 'sessions',

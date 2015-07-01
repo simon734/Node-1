@@ -13,9 +13,10 @@
     "jade": "~1.9.2",
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0",
-    "mongoose": "*",
+    "mongoose": "~3.8.8",
     "node-restful": "*",
     "method-override": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "multer": "~0.1.6"
   }
 }

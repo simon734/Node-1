@@ -16,7 +16,8 @@
         "passport": "~0.2.1",
         "passport-facebook": "~1.0.3",
         "passport-google-oauth": "*",
-        "passport-local": "~1.0.0"
+        "passport-local": "~1.0.0",
+        "multer": "~0.1.6"
     },
     "devDependencies": {
         "should": "~4.0.4",
