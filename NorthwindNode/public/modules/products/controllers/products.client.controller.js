@@ -4,6 +4,19 @@
 angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products',
 	function($scope, $stateParams, $location, Authentication, Products) {
 		$scope.authentication = Authentication;
+		$scope.currentPage = 1;
+		$scope.pageSize = 3;
+		$scope.offset = 0;
+
+		$scope.setPage = function (pageNo) {
+			$scope.currentPage = pageNo;
+		};
+
+		// Page changed handler
+		$scope.pageChanged = function() {
+			$scope.offset = ($scope.currentPage - 1) * $scope.pageSize;
+			console.log($scope.offset)
+		};
 
 		// Create new Product
 		$scope.create = function() {
@@ -53,7 +66,10 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 
 		// Find a list of Products
 		$scope.find = function() {
-			$scope.products = Products.query();
+			$scope.products = Products.query(function() {
+				$scope.totalItems = $scope.products.length;
+				console.log($scope.totalItems)
+			});
 		};
 
 		// Find existing Product
@@ -62,5 +78,9 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 				productId: $stateParams.productId
 			});
 		};
+
+		$scope.categorySearch = function(product) {
+			$location.path('products/' + product._id);
+		}
 	}
 ]);

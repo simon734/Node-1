@@ -1,28 +1,19 @@
 'use strict';
 
-var mongoose = require('mongoose');
+var Schema = require('mongoose').Schema;
 
-function validateEmail(value) {
-    var emailRegex =
-        /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i;
-    return (email.match(emailRegex) != null)
-}
-
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
     email: {
         type: String,
-        required: true,
-        set: function(value) {
-            return value.trim().toLowerCase()
-        },
-        validate: [
-            validateEmail, 'Invalid email'
-        ]
+        default: 'this is a test'
     },
     password: String,
     admin: {
         type: Boolean,
-        default: false
+        default: true
     }
 });
-module.exports = mongoose.model('User', userSchema);
+
+module.exports = function(db) {
+    db.model('User', userSchema);
+};

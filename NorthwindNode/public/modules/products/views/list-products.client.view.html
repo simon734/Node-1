@@ -2,8 +2,11 @@
     <div class="page-header">
         <h1>Products</h1>
     </div>
+    <div class="form-group">
+        <input type="text" ng-model="search" typeahead="product as product.name for product in products | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="categorySearch($item)" placeholder="Search Product...">
+    </div>
     <div class="list-group">
-        <a data-ng-repeat="product in products" data-ng-href="#!/products/{{product._id}}" class="list-group-item">
+        <a data-ng-repeat="product in products | limitTo: offset - products.length | limitTo: pageSize" data-ng-href="#!/products/{{product._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="product.created | date:'medium'"></span>
@@ -13,6 +16,7 @@
 			<h4 class="list-group-item-heading" data-ng-bind="product.name"></h4>
         </a>
     </div>
+    <pagination ng-show="products.length > pageSize" items-per-page="pageSize" total-items="products.length" ng-model="currentPage" ng-change="pageChanged()"></pagination>
     <div class="alert alert-warning text-center" data-ng-hide="!products.$resolved || products.length">
     	No Products yet, why don't you <a href="/#!/products/create">create one</a>?
     </div>
