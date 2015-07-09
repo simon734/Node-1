@@ -1,4 +1,9 @@
 /**
+ * Created by Cao Hong Phuoc on 7/9/2015.
+ */
+'use strict';
+
+/**
  * Created by Cao Hong Phuoc on 7/8/2015.
  */
 'use strict';
@@ -23,18 +28,18 @@ module.exports = {
 module.exports.init = function() {
     var self = this;
 
-    config.getGlobbedFiles('./env/database/*.js').forEach(function(routePath) {
+    config.getGlobbedFiles('./config/env/database/*.js').forEach(function(routePath) {
         var hostConfig = require(path.resolve(routePath));
         console.log('connecting to ' + hostConfig.db);
 
         self[hostConfig.host] = {};
 
         var gear = mongoose.createConnection(hostConfig.db);
-        require('./models/article')(gear);
+        require('../app/models/test1.server.model')(gear);
         self[hostConfig.host].gear = gear;
 
         var history = gear.useDb('history');
-        require('./models/user')(history);
+        require('../app/models/test2.server.model')(history);
         self[hostConfig.host].history = history;
 
         self[hostConfig.host].getModel = getModel;

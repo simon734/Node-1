@@ -1,6 +1,9 @@
-require('./mongoose')(function(db1, db2) {
-    var mongoose = require('mongoose');
-    var Article = db1.model('Article');
+var db = require('./mongoose');
+db.init();
+
+var localhost = db['localhost'];
+
+    var Article = localhost.getModel('Article');
     var article = new Article();
     console.log(article)
     article.save(function (err) {
@@ -11,7 +14,7 @@ require('./mongoose')(function(db1, db2) {
         }
     });
 
-    var User = db2.model('User');
+    var User = localhost.getModel('User');
     var user = new User();
     console.log(user)
     user.save(function (err) {
@@ -21,7 +24,6 @@ require('./mongoose')(function(db1, db2) {
             console.log('user saved')
         }
     });
-});
 
 
 

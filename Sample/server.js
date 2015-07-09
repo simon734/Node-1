@@ -12,19 +12,11 @@ var init = require('./config/init')(),
  * Please note that the order of loading is important.
  */
 
-// Bootstrap db connection
-var db = mongoose.connect(config.db, function(err) {
-	if (err) {
-		console.error(chalk.red('Could not connect to MongoDB!'));
-		console.log(chalk.red(err));
-	}
-});
+var db = require('./config/database');
+db.init();
 
 // Init the express application
-var app = require('./config/express')(db);
-
-// Bootstrap passport config
-require('./config/passport')();
+var app = require('./config/express')();
 
 // Start the app by listening on <port>
 app.listen(config.port);
