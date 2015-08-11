@@ -139,7 +139,7 @@ module.exports.update = function(req, res, next) {
 			res.send('updated');
 		}
 	})
-}
+};
 
 module.exports.saveOAuthUserProfile = function(req, profile, done) {
 	User.findByProvider(profile.provider, profile.providerId, function(err, user) {

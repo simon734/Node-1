@@ -1,6 +1,7 @@
 'use strict';
 
 var users = require('../controllers/users.server.controller'),
+	UserModel = require('mongoose').model('User'),
 	passport = require('passport');
 
 module.exports = function(app) {
@@ -48,4 +49,20 @@ module.exports = function(app) {
 		failureRedirect: '/signin',
 		successRedirect: '/'
 	}));
+
+	app.get('/test', function(req, res) {
+		console.log(req.user)
+		req.user.lastName = 'Cao Hong Phuoc';
+
+		var user = new UserModel(req.user);
+		user.isNew = false;
+		user.save(function(err) {
+			if (err) {
+				console.log(err.stack);
+			} 
+			
+			res.send('abc')
+		})
+		
+	})
 }
