@@ -1,4 +1,4 @@
-﻿Luon dùng ; cuối câu
+Luon dùng ; cuối câu
 
 Use single quotes, unless you are writing JSON.
 
@@ -24,10 +24,64 @@ function isPercentage(val) {
 }
 
 Use closures, but don't nest them. Otherwise your code will become a mess.
+function afterConnect() {
+    console.log('winning');
+}
+
 setTimeout(function() {
-  client.connect(afterConnect);
+    client.connect(afterConnect);
 }, 1000);
 
-function afterConnect() {
-  console.log('winning');
+
+All functions should be declared before they are used. Inner functions should follow the VAR statement
+
+If a function literal is anonymous, there should be one space between the word function and the (.
+
+Use {} instead of new Object(). Use [] instead of new Array(). 
+
+Line break: the next line is indended two levels. Example:
+callAFunction(document, element, window, "some string value", true, 123,
+		navigator);
+or
+if (isLeapYear && isFebruary && day == 29 && itsYourBirthday &&
+		noPlans) {
+	waitAnotherFourYears();
 }
+Exception rule:
+var result = something + anotherThing + yetAnotherThing + somethingElse +
+			 anotherSomethingElse;
+
+Blank line:
+	Between methods
+	Between the local variables in a method and its first statement
+	Before a multiline or single-line comment
+	Between logical sections inside a method to improve readability
+
+Do not use undefined. Init unassigned object is null
+
+Funtion format
+if (condition) {
+    doSomething();
+}
+
+function doSomethingWithItems(items) {
+    var i, len,
+    value = 10,
+    result = value + 10;
+
+    function doSomething(item) {
+        // do something
+    }
+
+    for (i=0, len=items.length; i < len; i++) {
+        doSomething(items[i]);
+    }
+}
+
+Use hasOwnProperty in for-in loop to prevent all inherit from prototype
+
+Keep CSS out of JavaScript. interact with CSS using class property.
+Keep JavaScript out of HTML
+Keep HTML out of JavaScript
+    Alternative #1: Load from the Server
+    Alternative #2: Simple Client-Side Templates: place template in html and then load from JavaScript
