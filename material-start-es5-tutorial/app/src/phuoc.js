@@ -2,13 +2,13 @@
 * @Author: Cao Hong Phuoc
 * @Date:   2015-08-26 11:51:42
 * @Last Modified by:   Cao Hong Phuoc
-* @Last Modified time: 2015-08-26 11:54:11
+* @Last Modified time: 2015-08-26 15:39:38
 */
 
 (function () {
   'use strict';
 
-  angular.module('MyApp', ['ngMaterial']);
+  angular.module('MyApp', ['ngMaterial', 'ngMessages']);
 
   angular.module('MyApp').controller('DemoCtrl', DemoCtrl);
 
@@ -20,9 +20,14 @@
 
     // list of `state` value/display objects
     self.states        = loadAll();
+    // self.states.push({
+    //   value: '',
+    //   display: ''
+    // });
     self.querySearch   = querySearch;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
+    self.searchText = '';
 
     // ******************************
     // Internal methods
@@ -62,7 +67,7 @@
               Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
               North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
               South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
-              Wisconsin, Wyoming';
+              Wisconsin, Wyoming, ';
 
       return allStates.split(/, +/g).map( function (state) {
         return {
