@@ -85,3 +85,7 @@ Keep JavaScript out of HTML
 Keep HTML out of JavaScript
     Alternative #1: Load from the Server
     Alternative #2: Simple Client-Side Templates: place template in html and then load from JavaScript
+	
+AVOID GLOBAL: functions, variable
+	khi khai báo 1 biến mà k có var, JavaScript se tự động coi đó là biến global => always use var when declare variable
+	=> giải pháp: chỉ tạo 1 object global giống như $ của JQuery
