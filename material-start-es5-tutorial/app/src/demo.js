@@ -2,13 +2,13 @@
 * @Author: Cao Hong Phuoc
 * @Date:   2015-08-26 14:19:35
 * @Last Modified by:   Cao Hong Phuoc
-* @Last Modified time: 2015-08-26 14:20:01
+* @Last Modified time: 2015-08-26 16:19:53
 */
 
 (function () {
   'use strict';
 
-  angular.module('MyApp', ['ngMaterial']);
+  angular.module('MyApp', ['ngMaterial', 'ngMessages']);
 
   angular
       .module('MyApp')

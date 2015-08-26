@@ -2,13 +2,13 @@
 * @Author: Cao Hong Phuoc
 * @Date:   2015-08-26 11:51:42
 * @Last Modified by:   Cao Hong Phuoc
-* @Last Modified time: 2015-08-26 15:39:38
+* @Last Modified time: 2015-08-26 16:40:00
 */
 
 (function () {
   'use strict';
 
-  angular.module('MyApp', ['ngMaterial', 'ngMessages']);
+  angular.module('MyApp', ['ngMaterial',  ]);
 
   angular.module('MyApp').controller('DemoCtrl', DemoCtrl);
 
@@ -28,6 +28,7 @@
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
     self.searchText = '';
+    self.selectedItem = null;
 
     // ******************************
     // Internal methods
