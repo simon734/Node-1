@@ -13,3 +13,4 @@ app/tests/coverage/
 **/node_modules/
 .idea
 */.idea
+*/*/bower_components
