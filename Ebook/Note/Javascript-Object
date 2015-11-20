@@ -1,0 +1,46 @@
+// Constructor pattern for create new object
+function Fruit (theColor, theSweetness, theFruitName, theNativeToLand) {
+​
+    this.color = theColor;
+    this.sweetness = theSweetness;
+    this.fruitName = theFruitName;
+    this.nativeToLand = theNativeToLand;
+​
+    this.showName = function () {
+        console.log("This is a " + this.fruitName);
+    }
+​
+    this.nativeTo = function () {
+    	this.nativeToLand.forEach(function (eachCountry)  {
+        	console.log("Grown in:" + eachCountry);
+        });
+    }
+}
+
+// Prototype pattern for create object. Use this for inheritance
+function Fruit () {
+​
+}
+​
+Fruit.prototype.color = "Yellow";
+Fruit.prototype.sweetness = 7;
+Fruit.prototype.fruitName = "Generic Fruit";
+Fruit.prototype.nativeToLand = "USA";
+​
+Fruit.prototype.showName = function () {
+	console.log("This is a " + this.fruitName);
+}
+​
+Fruit.prototype.nativeTo = function () {
+    console.log("Grown in:" + this.nativeToLand);
+}
+
+
+// inherited property
+someObject.prototype.firstName = "rich";
+
+// Accessing and Enumerating Properties on Objects
+​var school = {schoolName:"MIT", schoolAccredited: true, schoolLocation:"Massachusetts"};
+​for (var eachItem in school) {
+	console.log(eachItem); // Prints schoolName, schoolAccredited, schoolLocation​;
+}
