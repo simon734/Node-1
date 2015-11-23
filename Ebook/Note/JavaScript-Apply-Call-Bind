@@ -1,0 +1,46 @@
+- Bind
+allow to set "this" value for method
+method.bind(object);
+
+Allows us to Borrow Methods
+var cars = {
+	data:[
+    	{name:"Honda Accord", age:14},
+		{name:"Tesla Model S", age:2}
+	]
+}
+​cars.showData = user.showData.bind (cars);
+cars.showData (); // Honda Accord 14​
+
+Allows Us to Curry a Function 
+function greet (gender, age, name) {
+	// if a male, use Mr., else use Ms.​
+	var salutation = gender === "male" ? "Mr. " : "Ms. ";
+​
+	if (age > 25) {
+		return "Hello, " + salutation + name + ".";
+	}
+	else {
+		return "Hey, " + name + ".";
+	}
+}
+var greetAnAdultMale = greet.bind (null, "male", 45);
+​
+greetAnAdultMale ("John Hartlove"); // "Hello, Mr. John Hartlove."​
+​
+var greetAYoungster = greet.bind (null, "", 16);
+greetAYoungster ("Alex"); // "Hey, Alex."​
+greetAYoungster ("Emma Waterloo");
+
+CALL AND APPLY
+these functions use to set "this" value in called fucntion to another object
+Ex: someFunction.call(someObject, args); // "this" value in someFunction is ref to someObject
+APPLY use array of args
+
+The most common use for Apply and Call is to borrow functions(just like bind)
+
+
+
+Use Apply () to Execute Variable-Arity Functions
+var allNumbers = [23, 11, 34, 56];
+console.log (Math.max.apply (null, allNumbers)); // 56

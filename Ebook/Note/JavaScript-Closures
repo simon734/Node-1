@@ -1,0 +1,14 @@
+- Closures have access to the outer function’s variable even after the outer function returns
+function celebrityName (firstName) {
+    var nameIntro = "This celebrity is ";
+    function lastName (theLastName) {
+        return nameIntro + firstName + " " + theLastName;
+    }
+    return lastName;
+}
+​
+​var mjName = celebrityName ("Michael"); // At this juncture, the celebrityName outer function has returned.​
+​
+mjName ("Jackson"); // This celebrity is Michael Jackson 
+
+- Closures store references to the outer function’s variables
