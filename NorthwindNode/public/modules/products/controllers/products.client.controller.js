@@ -3,6 +3,8 @@
 // Products controller
 angular.module('products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Products',
 	function($scope, $stateParams, $location, Authentication, Products) {
+		console.log('ProductsController')
+
 		$scope.authentication = Authentication;
 		$scope.currentPage = 1;
 		$scope.pageSize = 3;
@@ -69,6 +71,8 @@ angular.module('products').controller('ProductsController', ['$scope', '$statePa
 			$scope.products = Products.query(function() {
 				$scope.totalItems = $scope.products.length;
 				console.log($scope.totalItems)
+
+				$scope.products[0].name = 'phuoc dep trai';
 			});
 		};
 
