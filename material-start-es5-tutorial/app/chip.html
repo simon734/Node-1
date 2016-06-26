@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Angular Material - Starter App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/chip.css"/>
+  </head>
+
+  <body layout="column">
+
+  <div>
+     <a href="#" style="position:relative;width: 140px; height: 200px;">
+        <img class="thumbnail" src="http://placehold.it/140x90" alt=""/>
+        <button class="btn" style="position:absolute;top:-75px;right:-5px;margin:0">+</button>
+    </a>
+    
+  </div>
+
+    <div ng-app="MyApp" class="chipsdemoBasicUsage" ng-controller="BasicDemoCtrl as ctrl" layout="column">
+
+  <md-content class="md-padding" layout="column">
+    <h2 class="md-title">Use a custom chip template.</h2>
+
+    <md-chips ng-model="ctrl.vegObjs" readonly="ctrl.readonly">
+      <md-chip-template>
+        <!-- <strong>{{$chip.name}}</strong> -->
+        <img src="assets/GreenOak.jpg" style="width:100px;height:100px;">
+      </md-chip-template>
+    </md-chips>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 class="md-title">Use the default chip template.</h2>
+
+    <md-chips ng-model="ctrl.fruitNames" readonly="ctrl.readonly"></md-chips>
+
+    <br>
+    <h2 class="md-title">Use Placeholders and override hint texts.</h2>
+
+    <md-chips ng-model="ctrl.tags" readonly="ctrl.readonly" placeholder="Enter a tag" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Tag"></md-chips>
+
+    <br>
+    <h2 class="md-title">Display an ordered set of objects as chips (with custom template).</h2>
+
+    <md-chips class="custom-chips" ng-model="ctrl.vegObjs" readonly="ctrl.readonly" md-on-append="ctrl.newVeg($chip)">
+      <md-chip-template>
+        <span>
+          <strong>{{$chip.name}}</strong>
+          <em>({{$chip.type}})</em>
+        </span>
+      </md-chip-template>
+      <button md-chip-remove="" class="md-primary vegetablechip">
+        <md-icon md-svg-icon="md-close"></md-icon>
+      </button>
+    </md-chips>
+
+    <br>
+    <md-checkbox ng-model="ctrl.readonly">Readonly</md-checkbox>
+
+    <md-chips class="custom-chips" ng-model="ctrl.vegObjs" readonly="ctrl.readonly" md-on-append="ctrl.newVeg($chip)">
+      <md-chip-template>
+        <span>
+          <img src="assets/GreenOak.jpg">
+        </span>
+      </md-chip-template>
+      <button md-chip-remove="" class="md-primary vegetablechip">
+        <md-icon md-svg-icon="md-close"></md-icon>
+      </button>
+    </md-chips>
+
+    <!-- <div layout="row">
+      <div>
+        <img src="assets/GreenOak.jpg">
+        
+      </div>
+      <div>
+        <img src="assets/GreenOak.jpg">
+      </div>
+    </div> -->
+
+    <md-list>
+      <md-list-item>
+         <img src="assets/GreenOak.jpg" />
+          <md-icon md-svg-icon="communication:messenger" class="md-primary md-secondary md-hue-3"></md-icon>
+        </md-list-item>
+    </md-list>
+
+
+
+  </md-content>
+</div>
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-messages/angular-messages.js"></script>
+
+    <script src="./src/chip.js"></script>
+
+    <script type="text/javascript">
+
+          
+
+    </script>
+
+  </body>
+</html>

@@ -30,6 +30,8 @@
     self.searchText = '';
     self.selectedItem = null;
 
+    self.userState = null;
+
     // ******************************
     // Internal methods
     // ******************************
